@@ -3,6 +3,11 @@
 " or
 " $ ln -s `pwd`/kami.vim ~/.vim/ftplugin/kami.vim
 
+if exists("b:did_kami_ftplugin")
+  finish
+endif
+let b:did_kami_ftplugin = 1
+
 " FIXME: this function is a mock
 function! s:create_file()
   let filename = "~/kami/" . escape(getline(1), '/')
