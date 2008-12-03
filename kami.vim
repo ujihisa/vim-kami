@@ -11,10 +11,12 @@ endfunction
 
 " FIXME: this function is a mock
 function! s:rename_file_if_changed()
-  let filename0 = "~/kami/" . escape(getline(1), '/')
-  let filename1 = expand('%')
-  if filename0 != filename1
+  let new_filename = "~/kami/" . escape(getline(1), '/')
+  let old_filename = expand('%')
+  if new_filename != old_filename
     echo "filename changed"
+    write new_filename
+    call delete(old_filename)
   endif
 endfunction
 
